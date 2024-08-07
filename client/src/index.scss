@@ -1,0 +1,48 @@
+@import "./styles/global.scss";
+
+// Base styles
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "San Francisco", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: $background-light-primary;
+  color: $text-light-primary;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  text-decoration: none;
+  color: $accent-light-primary;
+  transition: color 0.3s ease-in-out;
+
+  &:hover {
+    color: darken($accent-light-primary, 10%);
+  }
+
+  .dark-mode-primary & {
+    color: $accent-dark-primary;
+
+    &:hover {
+      color: lighten($accent-dark-primary, 10%);
+    }
+  }
+}
+
+.app-content {
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    flex-direction: row;
+  }
+}

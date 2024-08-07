@@ -1,0 +1,89 @@
+@import "../../styles/global.scss";
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+
+  .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    input,
+    select {
+      flex: 1;
+      padding-right: 2.5rem;
+      background-color: transparent;
+      border: 1px solid $secondary-accent-light-primary;
+      border-radius: 5px;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      @include transition;
+
+      .dark-mode & {
+        border-color: $secondary-accent-dark-primary;
+        background-color: $background-dark-primary;
+        color: $text-dark-primary;
+      }
+
+      &:focus {
+        border-color: $accent-light-primary;
+
+        .dark-mode & {
+          border-color: $accent-dark-primary;
+        }
+      }
+
+      &.error {
+        border-color: $error-color-light;
+
+        .dark-mode & {
+          border-color: $error-color-dark;
+        }
+      }
+
+      &.success {
+        border-color: $success-color-light;
+
+        .dark-mode & {
+          border-color: $success-color-dark;
+        }
+      }
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 0.75rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      font-size: 1rem;
+      color: $accent-light-primary;
+      @include transition;
+
+      &:hover {
+        color: darken($accent-light-primary, 10%);
+      }
+
+      .dark-mode & {
+        color: $accent-dark-primary;
+
+        &:hover {
+          color: lighten($accent-dark-primary, 10%);
+        }
+      }
+    }
+  }
+
+  .error-message {
+    color: $error-color;
+    font-size: 0.875rem;
+
+    .dark-mode & {
+      color: $error-color-dark;
+    }
+  }
+}

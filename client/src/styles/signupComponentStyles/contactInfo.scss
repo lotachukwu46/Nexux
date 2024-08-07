@@ -1,0 +1,166 @@
+@import "react-phone-input-2/lib/style.css";
+@import "../global.scss";
+.contact-info {
+  background-color: $background-light-primary;
+  color: $text-light-primary;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  @include transition;
+
+  .dark-mode & {
+    background-color: $background-dark-primary;
+    color: $text-dark-primary;
+  }
+
+  h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $accent-light-primary;
+
+    .dark-mode & {
+      color: $accent-dark-primary;
+    }
+  }
+
+  .info-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .form-control {
+      border: 1px solid $secondary-accent-light-primary;
+      border-radius: 5px;
+      font-size: 1rem;
+      @include transition;
+
+      &:focus {
+        border-color: $accent-light-primary;
+      }
+
+      &.error {
+        border-color: $error-color-light;
+      }
+
+      &.success {
+        border-color: $success-color-light;
+      }
+
+      .dark-mode & {
+        border-color: $secondary-accent-dark-primary;
+        background-color: $background-dark-primary;
+        color: $text-dark-primary;
+
+        &:focus {
+          border-color: $accent-dark-primary;
+        }
+
+        &.error {
+          border-color: $error-color-dark;
+        }
+
+        &.success {
+          border-color: $success-color-dark;
+        }
+      }
+    }
+
+    .react-tel-input {
+      .flag-dropdown {
+        background: transparent;
+        border: none;
+        padding: 0 0.5rem;
+      }
+
+      .form-control {
+        width: 100%;
+        background-color: transparent;
+      }
+
+      .dark-mode & {
+        .flag-dropdown {
+          background: transparent;
+        }
+      }
+    }
+  }
+
+  .button {
+    background: $accent-light-primary;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #ffffff;
+    cursor: pointer;
+    @include transition;
+
+    &:hover {
+      background: darken($accent-light-primary, 10%);
+    }
+
+    &.disabled {
+      background: lighten($accent-light-primary, 20%);
+      cursor: not-allowed;
+    }
+
+    .dark-mode & {
+      background: $accent-dark-primary;
+
+      &:hover {
+        background: lighten($accent-dark-primary, 10%);
+      }
+
+      &.disabled {
+        background: darken($accent-dark-primary, 20%);
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .back-button {
+    margin-top: 1rem;
+    width: 100%;
+    background: transparent;
+    border: 1px solid $accent-light-primary;
+    color: $accent-light-primary;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    @include transition;
+
+    &:hover {
+      background: $accent-light-primary;
+      color: #ffffff;
+    }
+
+    .dark-mode & {
+      border-color: $accent-dark-primary;
+      color: $accent-dark-primary;
+
+      &:hover {
+        background: $accent-dark-primary;
+        color: #ffffff;
+      }
+    }
+  }
+
+  // Responsive Layout Adjustments
+  @include large-desktop {
+    padding: 2rem;
+  }
+
+  @include desktop {
+    padding: 1.5rem;
+  }
+
+  @include tablet {
+    padding: 1rem;
+  }
+
+  @include mobile {
+    padding: 0.5rem;
+  }
+}

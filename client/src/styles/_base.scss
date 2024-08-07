@@ -1,0 +1,88 @@
+@import "./variables";
+@import "./mixins";
+
+// Header styles
+header {
+  padding: 20px;
+  background: $background-light-primary;
+  @include transition;
+
+  .dark-mode & {
+    background: $background-dark-primary;
+  }
+}
+
+// Footer styles
+footer {
+  padding: 20px;
+  text-align: center;
+  background: $background-light-primary;
+  @include transition;
+
+  .dark-mode & {
+    background: $background-dark-primary;
+  }
+}
+
+// Button styles
+button {
+  background: $accent-light-primary;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #ffffff;
+  cursor: pointer;
+  @include transition;
+
+  &:hover {
+    background: darken($accent-light-primary, 10%);
+  }
+
+  .dark-mode & {
+    background: $accent-dark-primary;
+
+    &:hover {
+      background: lighten($accent-dark-primary, 10%);
+    }
+  }
+}
+
+// Input styles
+input,
+textarea {
+  border: 1px solid $secondary-accent-light-primary;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  @include transition;
+
+  &:focus {
+    outline: none;
+    border-color: $accent-light-primary;
+  }
+
+  &.error {
+    border-color: $error-color-light;
+  }
+
+  &.success {
+    border-color: $success-color-light;
+  }
+
+  .dark-mode & {
+    border-color: $secondary-accent-dark-primary;
+
+    &:focus {
+      border-color: $accent-dark-primary;
+    }
+
+    &.error {
+      border-color: $error-color-dark;
+    }
+
+    &.success {
+      border-color: $success-color-dark;
+    }
+  }
+}

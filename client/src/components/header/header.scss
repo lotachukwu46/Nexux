@@ -1,0 +1,101 @@
+@import "../../styles/global.scss";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  height: 10vh;
+  background-color: darken($background-light-primary, 3%);
+  color: $text-light-primary;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  @include transition;
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .search-bar {
+    flex: 1;
+    max-width: 400px;
+    padding: 5px 10px;
+    margin: 0 20px;
+    border: 1px solid $secondary-accent-light-primary;
+    border-radius: 5px;
+    @include transition;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 20px;
+
+    a {
+      text-decoration: none;
+      color: $text-light-primary;
+      font-size: 1rem;
+      @include transition;
+
+      &:hover {
+        color: $accent-light-primary;
+      }
+    }
+
+    &.open {
+      display: block;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: $background-light-primary;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+  }
+
+  .mobile-menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  &.dark-mode {
+    background-color: $background-dark-primary;
+    color: $text-dark-primary;
+
+    .search-bar {
+      border-color: $secondary-accent-dark-primary;
+    }
+
+    .nav-links {
+      a {
+        color: $text-dark-primary;
+
+        &:hover {
+          color: $accent-dark-primary;
+        }
+      }
+
+      &.open {
+        background-color: $background-dark-primary;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .mobile-menu-icon {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+@import "./variables";
+@import "./mixins";
+
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $background-light-primary;
+  color: $text-light-primary;
+  @include transition;
+
+  .dark-mode & {
+    background-color: $background-dark-primary;
+    color: $text-dark-primary;
+  }
+
+  header {
+    padding: 1rem;
+    background-color: $accent-light-primary;
+    color: #ffffff;
+    @include transition;
+
+    .dark-mode & {
+      background-color: $accent-dark-primary;
+    }
+  }
+
+  main {
+    flex: 1;
+    padding: 2rem;
+    background-color: $background-light-primary;
+    @include transition;
+
+    .dark-mode & {
+      background-color: $background-dark-primary;
+    }
+  }
+
+  footer {
+    padding: 1rem;
+    text-align: center;
+    background-color: $secondary-accent-light-primary;
+    @include transition;
+
+    .dark-mode & {
+      background-color: $secondary-accent-dark-primary;
+    }
+  }
+}

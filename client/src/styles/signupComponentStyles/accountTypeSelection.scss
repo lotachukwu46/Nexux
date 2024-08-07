@@ -1,0 +1,170 @@
+@import "../global.scss";
+
+.account-type-selection {
+  padding: 20px;
+  background-color: $background-light-primary;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  @include fade-in-out(0.3);
+  @include transition;
+
+  .dark-mode & {
+    background-color: $background-dark-primary;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+    color: $text-light-primary;
+
+    .dark-mode & {
+      color: $text-dark-primary;
+    }
+  }
+
+  .account-options {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+
+    .account-option {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &.selected {
+        color: $accent-light-primary;
+        font-weight: bold;
+
+        .dark-mode & {
+          color: $accent-dark-primary;
+        }
+      }
+
+      input {
+        display: none;
+      }
+
+      span {
+        margin-left: 10px;
+
+        i {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+
+  .join-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &.active {
+      background-color: $accent-light-primary;
+      color: #fff;
+
+      &:hover {
+        background-color: darken($accent-light-primary, 10%);
+      }
+
+      .dark-mode & {
+        background-color: $accent-dark-primary;
+
+        &:hover {
+          background-color: lighten($accent-dark-primary, 10%);
+        }
+      }
+    }
+
+    &.disabled {
+      background-color: $secondary-accent-light-primary;
+      color: $text-light-primary;
+      cursor: not-allowed;
+
+      .dark-mode & {
+        background-color: $secondary-accent-dark-primary;
+        color: $text-dark-primary;
+      }
+    }
+
+    .fa-spinner {
+      margin-right: 5px;
+    }
+  }
+
+  .sign-in-prompt {
+    margin-top: 20px;
+    text-align: center;
+    color: $text-light-primary;
+
+    .dark-mode & {
+      color: $text-dark-primary;
+    }
+
+    a {
+      color: $accent-light-primary;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      .dark-mode & {
+        color: $accent-dark-primary;
+      }
+    }
+  }
+
+  @include tablet {
+    padding: 15px;
+
+    h2 {
+      font-size: 1.4rem;
+    }
+
+    .account-options {
+      flex-direction: row;
+      justify-content: space-between;
+
+      .account-option {
+        margin-bottom: 0;
+      }
+    }
+
+    .join-button {
+      padding: 9px;
+      font-size: 0.95rem;
+    }
+  }
+
+  @include mobile {
+    padding: 10px;
+    box-shadow: none;
+
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    .account-options {
+      flex-direction: column;
+
+      .account-option {
+        margin-bottom: 10px;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .join-button {
+      padding: 8px;
+      font-size: 0.9rem;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+@import "../styles/global.scss";
+
+.auth-layout {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100vh;
+  background-color: $background-light-primary;
+  padding-bottom: 80px; // Space for fixed header
+  @include transition;
+
+  // Dark mode styling
+  .dark-mode & {
+    background-color: $background-dark-primary;
+    padding: 2rem;
+  }
+
+  @include mobile {
+    padding-top: 60px; // Less space for fixed header on smaller screens
+  }
+
+  @include tablet {
+    padding-top: 70px; // Adjusted space for fixed header on tablet screens
+  }
+
+  @include desktop {
+    padding-top: 80px; // Default space for fixed header on larger screens
+  }
+
+  @include large-desktop {
+    padding-top: 100px; // More space for fixed header on larger screens
+  }
+
+  // Inner container for auth components
+  .auth-container {
+    width: 90%;
+    max-width: 400px;
+    padding-bottom: 20px;
+    background-color: $background-light-primary;
+    border: 1px solid $secondary-accent-light-primary;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    @include transition;
+
+    .dark-mode & {
+      background-color: $background-dark-primary;
+      border: 1px solid $secondary-accent-dark-primary;
+      box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+    }
+
+    @include mobile {
+      padding: 15px;
+    }
+
+    @include tablet {
+      padding: 18px;
+    }
+
+    @include desktop {
+      padding: 20px;
+    }
+
+    @include large-desktop {
+      padding: 25px;
+    }
+  }
+}

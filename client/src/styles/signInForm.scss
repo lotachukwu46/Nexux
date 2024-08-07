@@ -1,0 +1,219 @@
+@import "../styles/global.scss";
+
+.sign-in-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  border: solid 1px $accent-light-primary;
+  background-color: $background-light-primary;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  @include transition;
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 5rem;
+      height: 1rem;
+      object-fit: cover;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+
+    .forgot-password-link {
+      margin-top: 1rem;
+      text-align: left;
+      width: 100%;
+
+      a {
+        color: $accent-light-primary;
+        @include transition;
+
+        &:hover {
+          color: darken($accent-light-primary, 10%);
+        }
+      }
+    }
+  }
+
+  .button {
+    background: $accent-light-primary;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    cursor: pointer;
+    @include transition;
+
+    &:hover {
+      background: darken($accent-light-primary, 10%);
+    }
+  }
+
+  hr {
+    width: 100%;
+    border: none;
+    border-top: 1px solid $secondary-accent-light-primary;
+    margin: 2rem 0;
+    @include transition;
+  }
+
+  .social-login {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+
+    .button {
+      background: $accent-light-primary;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #ffffff;
+      cursor: pointer;
+      @include transition;
+
+      &:hover {
+        background: darken($accent-light-primary, 10%);
+      }
+    }
+
+    .facebook-login {
+      background: #3b5998; // Facebook blue
+      border: none;
+
+      &:hover {
+        background: darken(#3b5998, 10%);
+      }
+    }
+  }
+
+  .login-link {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+
+    a {
+      color: $accent-light-primary;
+      @include transition;
+
+      &:hover {
+        color: darken($accent-light-primary, 10%);
+      }
+    }
+  }
+
+  // Responsive styles
+  @media (max-width: 768px) {
+    width: 100%;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: none;
+  }
+
+  @media (max-width: 600px) {
+    padding: 1.5rem;
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .button {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+
+    .social-login .button {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    padding: 1rem;
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    .button {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+
+    .social-login .button {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+  }
+
+  // Dark mode styles
+  .dark-mode & {
+    border: solid 1px $accent-dark-primary;
+    background-color: $background-dark-primary;
+    color: $text-dark-primary;
+
+    @include mobile {
+      border: none;
+    }
+
+    h2 {
+      color: $text-dark-primary;
+    }
+
+    form {
+      .forgot-password-link a {
+        color: $accent-dark-primary;
+
+        &:hover {
+          color: lighten($accent-dark-primary, 10%);
+        }
+      }
+    }
+
+    .button {
+      background: $accent-dark-primary;
+
+      &:hover {
+        background: lighten($accent-dark-primary, 10%);
+      }
+    }
+
+    hr {
+      border-top: 1px solid $secondary-accent-dark-primary;
+    }
+
+    .social-login {
+      .button {
+        background: $accent-dark-primary;
+
+        &:hover {
+          background: lighten($accent-dark-primary, 10%);
+        }
+      }
+    }
+
+    .login-link a {
+      color: $accent-dark-primary;
+
+      &:hover {
+        color: lighten($accent-dark-primary, 10%);
+      }
+    }
+  }
+}

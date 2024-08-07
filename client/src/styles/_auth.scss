@@ -1,0 +1,42 @@
+@import "./variables";
+@import "./mixins";
+
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: $background-light-primary;
+  color: $text-light-primary;
+
+  @include transition;
+
+  .dark-mode & {
+    background-color: $background-dark-primary;
+    color: $text-dark-primary;
+  }
+
+  form {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    background-color: $background-light-primary;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    .dark-mode & {
+      background-color: $background-dark-primary;
+      box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    }
+
+    .formfield {
+      margin-bottom: 1rem;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 1rem;
+    }
+  }
+}

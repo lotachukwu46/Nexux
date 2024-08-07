@@ -1,0 +1,31 @@
+/* phoneInput.scss */
+.react-tel-input {
+  width: 100%;
+}
+
+.react-tel-input .form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.react-tel-input .flag-dropdown {
+  border: none;
+  background: none;
+}
+
+.react-tel-input .phone-dropdown {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.react-tel-input .flag-dropdown .selected-flag {
+  padding-left: 10px;
+}
+
+.react-tel-input .flag-dropdown .selected-flag .flag {
+  margin-right: 10px;
+}
