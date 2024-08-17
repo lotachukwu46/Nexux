@@ -1,32 +1,25 @@
 @import "../styles/global.scss";
 
 .sign-in-form {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
   align-items: center;
-  border: solid 1px $accent-light-primary;
-  background-color: $background-light-primary;
+  max-width: 400px;
   padding: 2rem;
   border-radius: 1.5rem;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
   @include transition;
 
   h2 {
     font-size: 1.8rem;
     font-weight: normal;
     margin-bottom: 1.5rem;
-    align-items: center;
-    justify-content: center;
-
-    img {
-      width: 5rem;
-      height: 1rem;
-      object-fit: cover;
-    }
+    text-align: center;
   }
 
   form {
@@ -49,6 +42,21 @@
         }
       }
     }
+
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+
+      input[type="checkbox"] {
+        cursor: pointer;
+      }
+
+      label {
+        cursor: pointer;
+      }
+    }
   }
 
   .button {
@@ -67,9 +75,9 @@
   }
 
   hr {
-    width: 100%;
+    width: 90%;
     border: none;
-    border-top: 1px solid $secondary-accent-light-primary;
+    border-top: 1px solid $accent-light-primary;
     margin: 2rem 0;
     @include transition;
   }
@@ -97,7 +105,7 @@
     }
 
     .facebook-login {
-      background: #3b5998; // Facebook blue
+      background: #3b5998;
       border: none;
 
       &:hover {
@@ -126,10 +134,8 @@
     border: none;
     border-radius: 1rem;
     box-shadow: none;
-  }
-
-  @media (max-width: 600px) {
     padding: 1.5rem;
+
     h2 {
       font-size: 1.5rem;
     }
@@ -147,6 +153,7 @@
 
   @media (max-width: 400px) {
     padding: 1rem;
+
     h2 {
       font-size: 1.2rem;
     }
@@ -159,61 +166,6 @@
     .social-login .button {
       padding: 6px 12px;
       font-size: 12px;
-    }
-  }
-
-  // Dark mode styles
-  .dark-mode & {
-    border: solid 1px $accent-dark-primary;
-    background-color: $background-dark-primary;
-    color: $text-dark-primary;
-
-    @include mobile {
-      border: none;
-    }
-
-    h2 {
-      color: $text-dark-primary;
-    }
-
-    form {
-      .forgot-password-link a {
-        color: $accent-dark-primary;
-
-        &:hover {
-          color: lighten($accent-dark-primary, 10%);
-        }
-      }
-    }
-
-    .button {
-      background: $accent-dark-primary;
-
-      &:hover {
-        background: lighten($accent-dark-primary, 10%);
-      }
-    }
-
-    hr {
-      border-top: 1px solid $secondary-accent-dark-primary;
-    }
-
-    .social-login {
-      .button {
-        background: $accent-dark-primary;
-
-        &:hover {
-          background: lighten($accent-dark-primary, 10%);
-        }
-      }
-    }
-
-    .login-link a {
-      color: $accent-dark-primary;
-
-      &:hover {
-        color: lighten($accent-dark-primary, 10%);
-      }
     }
   }
 }

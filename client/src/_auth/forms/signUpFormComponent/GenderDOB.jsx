@@ -2,7 +2,7 @@ import React from "react";
 import { Formik, Form } from "formik";
 import { motion } from "framer-motion";
 import FormField from "../../../components/formfield/FormField";
-import "../../../styles/signupComponentStyles/basicInfo.scss";
+import "../../../styles/signupComponentStyles/DOB.scss";
 
 const GenderDOB = ({
   initialValues,
@@ -10,7 +10,6 @@ const GenderDOB = ({
   handleSubmit,
   handleNextStep,
   handlePreviousStep,
-  heading,
   direction,
 }) => {
   const days = Array.from({ length: 31 }, (_, i) => i + 1).map((day) => ({
@@ -37,7 +36,7 @@ const GenderDOB = ({
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
       className="basic-info"
     >
-      <h2>{heading}</h2>
+      <h2>Enter Your Personal Details</h2>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -81,6 +80,7 @@ const GenderDOB = ({
                 { key: "Custom", value: "Custom" },
               ]}
             />
+            <FormField name="email" type="email" placeholder="Email Address" />
             <button
               type="submit"
               className={`button ${
@@ -89,7 +89,8 @@ const GenderDOB = ({
                 !values.day ||
                 !values.month ||
                 !values.year ||
-                !values.gender
+                !values.gender ||
+                !values.email
                   ? "disabled"
                   : ""
               }`}
@@ -99,7 +100,8 @@ const GenderDOB = ({
                 !values.day ||
                 !values.month ||
                 !values.year ||
-                !values.gender
+                !values.gender ||
+                !values.email
               }
             >
               Continue

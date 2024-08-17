@@ -20,8 +20,8 @@ const AccountTypeSelection = ({
   error,
 }) => (
   <div className="account-type-selection">
-    <h2>Join as a seller or buyer</h2>
-    <motion.div className="account-options">
+    <h2>Select Your Account Type</h2>
+    <motion.div className="account-options" initial="hidden" animate="visible">
       <motion.label
         className={`account-option ${
           accountType === "seller" ? "selected" : ""
@@ -33,6 +33,7 @@ const AccountTypeSelection = ({
           name="accountType"
           value="seller"
           onChange={handleAccountTypeChange}
+          checked={accountType === "seller"}
           required
         />
         <span>I’m a seller, listing products</span>
@@ -48,6 +49,7 @@ const AccountTypeSelection = ({
           name="accountType"
           value="buyer"
           onChange={handleAccountTypeChange}
+          checked={accountType === "buyer"}
           required
         />
         <span>I’m a buyer, purchasing products</span>

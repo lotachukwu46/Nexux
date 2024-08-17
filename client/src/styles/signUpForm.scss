@@ -1,177 +1,52 @@
-// signUpForm.scss
+@import "../styles/global.scss";
 
-@import "./global.scss";
-
-// Step container
 .sign-up-form {
-  width: 100%;
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-direction: column;
-  max-width: 600px;
-  height: 100vh;
-  margin: 0 auto;
-  padding: 2rem;
-  background-color: $background-light-primary;
-  @include transition;
-
-  @include mobile {
-    padding: 0.5rem;
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
   }
 
-  .dark-mode & {
-    background-color: $background-dark-primary;
+  .progress-bar {
+    width: 100%;
+    margin-bottom: 1.5rem;
   }
 
-  // Form heading
-  .form-heading {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-align: center;
-    color: $text-light-primary;
-
-    .dark-mode & {
-      color: $text-dark-primary;
-    }
+  .form-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
-  // Form fields
-  .form-field {
-    margin-bottom: 20px;
-
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 500;
-      color: $text-light-primary;
-
-      .dark-mode & {
-        color: $text-dark-primary;
-      }
-
-      .required {
-        color: $accent-light-primary;
-
-        .dark-mode & {
-          color: $accent-dark-primary;
-        }
-      }
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid $secondary-accent-light-primary;
-      border-radius: 5px;
-      font-size: 1rem;
-      @include transition;
-
-      &:focus {
-        border-color: $accent-light-primary;
-        outline: none;
-      }
-
-      &.error {
-        border-color: $error-color-light;
-      }
-
-      &.success {
-        border-color: $success-color-light;
-      }
-
-      .dark-mode & {
-        border-color: $secondary-accent-dark-primary;
-
-        &:focus {
-          border-color: $accent-dark-primary;
-        }
-
-        &.error {
-          border-color: $error-color-dark;
-        }
-
-        &.success {
-          border-color: $success-color-dark;
-        }
-      }
-    }
-
-    .error-message {
-      margin-top: 5px;
-      font-size: 0.875rem;
-      color: $error-color-light;
-
-      .dark-mode & {
-        color: $error-color-dark;
-      }
-    }
-  }
-
-  // Buttons
-  .form-buttons {
+  .navigation-buttons {
     display: flex;
     justify-content: space-between;
+    margin-top: 1.5rem;
 
     button {
-      padding: 10px 20px;
+      background: $accent-light-primary;
       border: none;
       border-radius: 5px;
-      font-size: 1rem;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #fff;
       cursor: pointer;
-      @include transition;
+      transition: background 0.3s, transform 0.2s;
 
-      &.next {
-        background-color: $accent-light-primary;
-        color: #fff;
-
-        &:hover {
-          background-color: darken($accent-light-primary, 10%);
-        }
-
-        .dark-mode & {
-          background-color: $accent-dark-primary;
-
-          &:hover {
-            background-color: lighten($accent-dark-primary, 10%);
-          }
-        }
+      &:hover {
+        background: darken($accent-light-primary, 10%);
+        transform: scale(1.05);
       }
 
-      &.prev {
-        background-color: $secondary-accent-light-primary;
-        color: $text-light-primary;
-
-        &:hover {
-          background-color: darken($secondary-accent-light-primary, 10%);
-        }
-
-        .dark-mode & {
-          background-color: $secondary-accent-dark-primary;
-          color: $text-dark-primary;
-
-          &:hover {
-            background-color: lighten($secondary-accent-dark-primary, 10%);
-          }
-        }
+      &:disabled {
+        background: #ccc;
+        cursor: not-allowed;
       }
     }
   }
-}
 
-// Specific styles for form steps
-.account-type-selection,
-.basic-info,
-.contact-info,
-.address-info,
-.secure-account,
-.phone-validation,
-.profile-picture-bio,
-.confirmation {
-  .form-field {
-    margin-bottom: 20px;
+  @media (max-width: 768px) {
+    padding: 1rem;
+    max-width: 100%;
   }
 }

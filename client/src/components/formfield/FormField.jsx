@@ -4,18 +4,31 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import "./formField.scss";
 
-const FormField = ({ control, label, name, type, placeholder, options }) => {
+const FormField = ({
+  control,
+  label,
+  name,
+  type = "text",
+  placeholder,
+  options,
+}) => {
   const [field, meta] = useField(name);
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="form-field">
+    <div
+      className={`form-field ${meta.touched && meta.error ? "has-error" : ""}`}
+    >
       {label && <label htmlFor={name}>{label}</label>}
       <Field name={name}>
         {({ field, form }) => (
           <div className="input-wrapper">
             {control === "select" ? (
-              <select {...field} placeholder={placeholder}>
+              <select
+                {...field}
+                placeholder={placeholder}
+                className="select-field"
+              >
                 <option value="">{placeholder}</option>
                 {options.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -24,19 +37,23 @@ const FormField = ({ control, label, name, type, placeholder, options }) => {
                 ))}
               </select>
             ) : control === "textarea" ? (
-              <textarea {...field} placeholder={placeholder} />
+              <textarea
+                {...field}
+                placeholder={placeholder}
+                className="textarea-field"
+              />
             ) : control === "file" ? (
               <input
                 {...field}
                 type="file"
-                placeholder={placeholder}
+                className="file-input"
                 onChange={(e) =>
                   form.setFieldValue(name, e.currentTarget.files[0])
                 }
               />
             ) : control === "radio" ? (
               options.map((option) => (
-                <label key={option.value}>
+                <label key={option.value} className="radio-label">
                   <input
                     type="radio"
                     {...field}
@@ -51,7 +68,9 @@ const FormField = ({ control, label, name, type, placeholder, options }) => {
                 {...field}
                 type={showPassword && type === "password" ? "text" : type}
                 placeholder={placeholder}
-                className={meta.touched && meta.error ? "input-error" : ""}
+                className={`text-input ${
+                  meta.touched && meta.error ? "input-error" : ""
+                }`}
               />
             )}
             {type === "password" && (

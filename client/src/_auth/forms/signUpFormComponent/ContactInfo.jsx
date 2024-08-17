@@ -47,7 +47,6 @@ const ContactInfo = ({
       >
         {({ isSubmitting, errors, values, setFieldValue }) => (
           <Form className="info-fields">
-            <FormField name="email" type="email" placeholder="Email Address" />
             <Field name="phone">
               {({ field }) => (
                 <PhoneInput

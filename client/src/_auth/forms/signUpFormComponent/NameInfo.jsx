@@ -12,7 +12,6 @@ const NameInfo = ({
   handleSubmit,
   handleNextStep,
   handlePreviousStep,
-  heading,
   direction,
 }) => {
   return (
@@ -23,7 +22,7 @@ const NameInfo = ({
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
       className="basic-info"
     >
-      <h2>{heading}</h2>
+      <h2>How old are you ?</h2>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -44,12 +43,18 @@ const NameInfo = ({
               type="text"
               name="firstName"
               placeholder="First Name"
+              className={`form-field ${
+                touched.firstName && errors.firstName ? "error" : ""
+              }`}
             />
             <FormField
               control="input"
               type="text"
               name="lastName"
               placeholder="Last Name"
+              className={`form-field ${
+                touched.lastName && errors.lastName ? "error" : ""
+              }`}
             />
             <button
               type="submit"

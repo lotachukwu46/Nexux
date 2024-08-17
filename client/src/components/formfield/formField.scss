@@ -1,89 +1,79 @@
 @import "../../styles/global.scss";
 
 .form-field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  margin-bottom: 1.5rem;
   width: 100%;
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: $text-light-primary; /* Adapt color to your theme */
+  }
 
   .input-wrapper {
     position: relative;
     display: flex;
     align-items: center;
+    width: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.2); /* Glassy effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
-    input,
-    select {
-      flex: 1;
-      padding-right: 2.5rem;
-      background-color: transparent;
-      border: 1px solid $secondary-accent-light-primary;
-      border-radius: 5px;
+    .text-input,
+    .select-field,
+    .textarea-field,
+    .file-input {
+      width: 100%;
       padding: 0.75rem 1rem;
+      border: none;
+      outline: none;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      color: $text-light-primary; /* Adjust for dark mode */
       font-size: 1rem;
-      @include transition;
 
-      .dark-mode & {
-        border-color: $secondary-accent-dark-primary;
-        background-color: $background-dark-primary;
-        color: $text-dark-primary;
+      &::placeholder {
+        color: $text-light-minimalist;
       }
+    }
 
-      &:focus {
-        border-color: $accent-light-primary;
-
-        .dark-mode & {
-          border-color: $accent-dark-primary;
-        }
-      }
-
-      &.error {
-        border-color: $error-color-light;
-
-        .dark-mode & {
-          border-color: $error-color-dark;
-        }
-      }
-
-      &.success {
-        border-color: $success-color-light;
-
-        .dark-mode & {
-          border-color: $success-color-dark;
-        }
-      }
+    .input-error {
+      border-bottom: 2px solid $error-color; /* Red underline for error */
     }
 
     .toggle-password {
       position: absolute;
-      right: 0.75rem;
+      right: 1rem;
       background: none;
       border: none;
+      color: $accent-light-primary; /* Adjust for dark mode */
       cursor: pointer;
-      padding: 0.5rem;
-      font-size: 1rem;
-      color: $accent-light-primary;
-      @include transition;
+    }
+  }
 
-      &:hover {
-        color: darken($accent-light-primary, 10%);
-      }
+  .radio-label {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
 
-      .dark-mode & {
-        color: $accent-dark-primary;
-
-        &:hover {
-          color: lighten($accent-dark-primary, 10%);
-        }
-      }
+    input[type="radio"] {
+      margin-right: 0.5rem;
     }
   }
 
   .error-message {
+    margin-top: 0.5rem;
     color: $error-color;
     font-size: 0.875rem;
+  }
 
-    .dark-mode & {
-      color: $error-color-dark;
+  &.has-error {
+    .input-wrapper {
+      box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
     }
   }
 }

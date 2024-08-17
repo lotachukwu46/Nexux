@@ -1,29 +1,42 @@
-// Mixins for transitions
 @mixin transition {
   transition: all 0.3s ease-in-out;
 }
 
-// Mixins for responsive design
+@mixin responsive($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
 @mixin mobile {
-  @media (max-width: 576px) {
-    @content;
-  }
+  @include responsive(576px);
 }
-
 @mixin tablet {
-  @media (max-width: 768px) {
-    @content;
-  }
+  @include responsive(768px);
 }
-
 @mixin desktop {
-  @media (max-width: 992px) {
-    @content;
-  }
+  @include responsive(992px);
+}
+@mixin large-desktop {
+  @include responsive(1200px);
 }
 
-@mixin large-desktop {
-  @media (min-width: 1200px) {
-    @content;
+@mixin fade-in-out($duration) {
+  transition: opacity $duration, transform $duration;
+  &.enter {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  &.enter-active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  &.exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  &.exit-active {
+    opacity: 0;
+    transform: translateY(-100%);
   }
 }

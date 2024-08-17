@@ -8,6 +8,7 @@ import "../../../styles/global.scss";
 const AccountInfo = ({
   initialValues,
   handleSubmit,
+  accountType,
   validationSchema,
   handleNextStep,
   handlePreviousStep,
@@ -21,7 +22,7 @@ const AccountInfo = ({
     transition={{ type: "spring", stiffness: 300, damping: 30 }}
     className="account-info"
   >
-    <h2>{heading}</h2>
+    <h2>Create username and password</h2>
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
@@ -47,18 +48,24 @@ const AccountInfo = ({
             type="password"
             placeholder="Confirm your password"
           />
-          <button
-            type="submit"
-            className={`button ${
-              isSubmitting || !isValid || !dirty ? "disabled" : ""
-            }`}
-            disabled={isSubmitting || !isValid || !dirty}
-          >
-            {isSubmitting ? "Submitting..." : "Next"}
-          </button>
-          <button className="back-button" onClick={handlePreviousStep}>
-            Back
-          </button>
+          <div className="buttons-container">
+            <button
+              type="submit"
+              className={`button ${
+                isSubmitting || !isValid || !dirty ? "disabled" : ""
+              }`}
+              disabled={isSubmitting || !isValid || !dirty}
+            >
+              {isSubmitting ? "Submitting..." : "Next"}
+            </button>
+            <button
+              type="button"
+              className="back-button"
+              onClick={handlePreviousStep}
+            >
+              Back
+            </button>
+          </div>
         </Form>
       )}
     </Formik>

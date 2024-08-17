@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Formik, Form } from "formik";
+import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import "../../styles/signInForm.scss";
 import FormField from "../../components/formfield/FormField";
@@ -8,12 +8,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { motion } from "framer-motion";
 import Loader from "../../components/loader/Loader";
-import logo from "../../../public/nexux.png";
+import axios from "axios";
 
 const SignInForm = () => {
   const initialValues = {
     email: "",
     password: "",
+    rememberMe: false, // Add rememberMe to initialValues
   };
 
   const validationSchema = Yup.object({
@@ -36,9 +37,7 @@ const SignInForm = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <h2>
-        Log in to <img src={logo} alt="" />
-      </h2>
+      <h2>Log in to Nexux</h2>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -48,6 +47,13 @@ const SignInForm = () => {
           <Form>
             <FormField name="email" type="email" placeholder="Email" />
             <FormField name="password" type="password" placeholder="Password" />
+
+            {/* Remember Me Field */}
+            <div className="remember-me">
+              <Field type="checkbox" name="rememberMe" id="rememberMe" />
+              <label htmlFor="rememberMe">Remember me</label>
+            </div>
+
             <motion.button
               type="submit"
               className="button"
